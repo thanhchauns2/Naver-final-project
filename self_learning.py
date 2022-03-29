@@ -12,13 +12,13 @@ def decrease(probability, sum = 1):
 
 def self_learning():
     probabilities = {}
-    with open('C:\\Users\\Administrator\\Documents\\GitHub\\Naver-final-project\\evaluate.txt', 'rb') as file:
+    with open('evaluate.txt', 'rb') as file:
         data = file.read()
         probabilities = pickle.loads(data)
 
     cnt = 0
 
-    with open("C:\\Users\\Administrator\\Documents\\GitHub\\Naver-final-project/train_PTIT.csv", "r") as csv_file:
+    with open("./train_PTIT.csv", "r") as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=",")
         line_count = 0
         for row in csv_reader:
@@ -55,7 +55,7 @@ def self_learning():
             if line_count == 500:
                 break
     
-    file = open('C:\\Users\\Administrator\\Documents\\GitHub\\Naver-final-project\\evaluate.txt', 'wb')
+    file = open('\evaluate.txt', 'wb')
 
     pickle.dump(probabilities, file)
 

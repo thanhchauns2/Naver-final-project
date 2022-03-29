@@ -14,7 +14,7 @@ def generate():
             sum[labels[i]][j] = 0
             switch[labels[i]][j] = 0
             probabilities[labels[i]][j] = 0
-    with open("C:\\Users\\Administrator\\Documents\\GitHub\\Naver-final-project/train_PTIT.csv", "r") as csv_file:
+    with open("./train_PTIT.csv", "r") as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=",")
         line_count = 0
         for row in csv_reader:
@@ -36,7 +36,7 @@ def generate():
             probabilities[labels[i]][j] = switch[labels[i]][j] / sum[labels[i]][j]
     
 
-    file = open('C:\\Users\\Administrator\\Documents\\GitHub\\Naver-final-project\\evaluate.txt', 'wb')
+    file = open('evaluate.txt', 'wb')
 
     pickle.dump(probabilities, file)
 

@@ -5,11 +5,11 @@ probabilities = {}
 cnt = 0
 answers = []
 
-with open('C:\\Users\\Administrator\\Documents\\GitHub\\Naver-final-project/evaluate.txt', 'rb') as file:
+with open('./evaluate.txt', 'rb') as file:
     data = file.read()
     probabilities = pickle.loads(data)
 
-with open("C:\\Users\\Administrator\\Documents\\GitHub\\Naver-final-project/test_data.csv", "r") as csv_file:
+with open("./test_data.csv", "r") as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=",")
     line_count = 0
     for row in csv_reader:
@@ -38,7 +38,7 @@ with open("C:\\Users\\Administrator\\Documents\\GitHub\\Naver-final-project/test
             answers.append(expected)
             line_count += 1
 
-with open("C:\\Users\\Administrator\\Documents\\GitHub\\Naver-final-project/test_data_after_training.txt", 'w') as file:
+with open("./test_data_after_training.txt", 'w') as file:
     for i in range(len(answers)):
         file.write(answers[i] + '\n')
 
