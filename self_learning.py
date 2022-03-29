@@ -52,10 +52,10 @@ def self_learning():
                                 if j != answer:
                                     probabilities[j][i] = decrease(probabilities[j][i], sum)
                             probabilities[answer][i] = increase(probabilities[answer][i], sum)
-            if line_count == 500:
-                break
+            # if line_count == 500:
+            #     break
     
-    file = open('\evaluate.txt', 'wb')
+    file = open('evaluate.txt', 'wb')
 
     pickle.dump(probabilities, file)
 

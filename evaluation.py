@@ -28,8 +28,8 @@ def generate():
                     else:
                         sum[row[-1]][i] += 1
                 line_count += 1
-            if line_count == 500:
-                break
+            # if line_count == 500:
+            #     break
         
     for i in range(len(labels)):
         for j in range(0, 1433):
