@@ -1,6 +1,5 @@
 import pickle
 import csv
-import chime
 
 # test_log = open("log.txt", "w")
 
@@ -88,5 +87,3 @@ for i in range(5):
     divider *= 2
 
 # test_log.close()
-
-chime.success()
