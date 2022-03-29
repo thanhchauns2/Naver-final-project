@@ -5,11 +5,11 @@ probabilities = {}
 cnt = 0
 answers = []
 
-with open('evaluate.txt', 'rb') as file:
+with open('C:\\Users\\Administrator\\Documents\\GitHub\\Naver-final-project/evaluate.txt', 'rb') as file:
     data = file.read()
     probabilities = pickle.loads(data)
 
-with open("./test_data.csv", "r") as csv_file:
+with open("C:\\Users\\Administrator\\Documents\\GitHub\\Naver-final-project/test_data.csv", "r") as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=",")
     line_count = 0
     for row in csv_reader:
@@ -29,19 +29,16 @@ with open("./test_data.csv", "r") as csv_file:
                 if row[i] == '1':
                     for j in labels:
                         labels[j] *= (probabilities[j][i])
-                else:
-                    for j in labels:
-                        labels[j] *= (1 - probabilities[j][i])
             labels = dict(sorted(labels.items(), key = lambda item: item[1], reverse = True))
             expected = list(labels.keys())[0]
             answer = row[-1]
             if answer != expected:
-                print("Wrong at token " + str(line_count + 1) + " token. Expected: " + expected + " Got: " + answer)
+                print("Wrong at token " + str(line_count + 1) + ". Expected: " + expected + " Got: " + answer)
                 cnt += 1
             answers.append(expected)
             line_count += 1
 
-with open("./test_data_after_training.txt", 'w') as file:
+with open("C:\\Users\\Administrator\\Documents\\GitHub\\Naver-final-project/test_data_after_training.txt", 'w') as file:
     for i in range(len(answers)):
         file.write(answers[i] + '\n')
 
