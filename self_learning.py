@@ -52,21 +52,21 @@ def self_learning():
                             # sum = 0
                             # for j in labels:
                             #     sum += probabilities[j][i]
-                            # for j in labels:
-                            #     if j != answer:
-                            #         probabilities[j][i] = decrease(probabilities[j][i], sum)
+                            for j in labels:
+                                if j != answer:
+                                    probabilities[j][i] = decrease(probabilities[j][i], sum)
                             probabilities[answer][i] = increase(probabilities[answer][i], sum)
-                        else:
-                            # sum = 0
-                            # for j in labels:
-                            #     sum += probabilities[j][i]
-                            # for j in labels:
-                            #     if j != answer:
-                            #         probabilities[j][i] = increase(probabilities[j][i], sum)
-                            probabilities[answer][i] = decrease(probabilities[answer][i], sum)
+                        # else:
+                        #     # sum = 0
+                        #     # for j in labels:
+                        #     #     sum += probabilities[j][i]
+                        #     # for j in labels:
+                        #     #     if j != answer:
+                        #     #         probabilities[j][i] = increase(probabilities[j][i], sum)
+                        #     probabilities[answer][i] = decrease(probabilities[answer][i], sum)
                 line_count += 1
-            # if line_count == 2000:
-            #     break
+            if line_count == 1500:
+                break
     
     file = open('evaluate.txt', 'wb')
 
