@@ -65,8 +65,8 @@ def self_learning():
                         #     #         probabilities[j][i] = increase(probabilities[j][i], sum)
                         #     probabilities[answer][i] = decrease(probabilities[answer][i], sum)
                 line_count += 1
-            if line_count == 1500:
-                break
+            # if line_count == 1500:
+            #     break
     
     file = open('evaluate.txt', 'wb')
 
