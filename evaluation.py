@@ -28,7 +28,7 @@ def generate():
                     else:
                         sum[row[-1]][i] += 1
                 line_count += 1
-            if line_count == 1500:
+            if line_count == 2000:
                 break
         
     for i in range(len(labels)):
