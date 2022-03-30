@@ -78,6 +78,6 @@ def self_learning():
 
 
 for i in range(5):
-    for j in range(10):
+    for j in range(20):
         self_learning()
     divider /= 2
