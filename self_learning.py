@@ -37,23 +37,36 @@ def self_learning():
                 for i in range(0, len(row) - 1):
                     if row[i] == '1':
                         for j in labels:
-                            labels[j] *= (probabilities[j][i])
+                            labels[j] *= max(0.000000, probabilities[j][i])
+                    # else:
+                    #     for j in labels:
+                    #         labels[j] *= max(0.000000, 1 - probabilities[j][i])
                 labels = dict(sorted(labels.items(), key = lambda item: item[1], reverse = True))
                 answer = row[-1]
                 expected = list(labels.keys())[0]
                 if answer != expected:
                     cnt += 1
+                    # print(labels)
                     for i in range(0, len(row) - 1):
                         if row[i] == '1':
-                            sum = 0
-                            for j in labels:
-                                sum += probabilities[j][i]
-                            for j in labels:
-                                if j != answer:
-                                    probabilities[j][i] = decrease(probabilities[j][i], sum)
+                            # sum = 0
+                            # for j in labels:
+                            #     sum += probabilities[j][i]
+                            # for j in labels:
+                            #     if j != answer:
+                            #         probabilities[j][i] = decrease(probabilities[j][i], sum)
                             probabilities[answer][i] = increase(probabilities[answer][i], sum)
-            # if line_count == 500:
-            #     break
+                        else:
+                            # sum = 0
+                            # for j in labels:
+                            #     sum += probabilities[j][i]
+                            # for j in labels:
+                            #     if j != answer:
+                            #         probabilities[j][i] = increase(probabilities[j][i], sum)
+                            probabilities[answer][i] = decrease(probabilities[answer][i], sum)
+                line_count += 1
+            if line_count == 1500:
+                break
     
     file = open('evaluate.txt', 'wb')
 

@@ -27,12 +27,16 @@ with open("./test_data.csv", "r") as csv_file:
             }
             for i in range(0, len(row) - 1):
                 if row[i] == '1':
-                    for j in labels:
-                        labels[j] *= (probabilities[j][i])
+                        for j in labels:
+                            labels[j] *= max(0.000000, probabilities[j][i])
+                # else:
+                #     for j in labels:
+                #         labels[j] *= max(0.000000, 1 - probabilities[j][i])
             labels = dict(sorted(labels.items(), key = lambda item: item[1], reverse = True))
             expected = list(labels.keys())[0]
             answer = row[-1]
             if answer != expected:
+                print(labels)
                 print("Wrong at token " + str(line_count + 1) + ". Expected: " + expected + " Got: " + answer)
                 cnt += 1
             answers.append(expected)
@@ -43,4 +47,3 @@ with open("./test_data_after_training.txt", 'w') as file:
         file.write(answers[i] + '\n')
 
 print("Wrong tests: " + str(cnt))
-        
