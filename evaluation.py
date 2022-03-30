@@ -33,8 +33,8 @@ def generate():
         
     for i in range(len(labels)):
         for j in range(0, 1433):
-            # probabilities[labels[i]][j] = switch[labels[i]][j] / sum[labels[i]][j]
-            probabilities[labels[i]][j] = 0.5
+            probabilities[labels[i]][j] = switch[labels[i]][j] / sum[labels[i]][j]
+            # probabilities[labels[i]][j] = 0.5
     
 
     file = open('evaluate.txt', 'wb')

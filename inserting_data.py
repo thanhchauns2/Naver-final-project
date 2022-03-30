@@ -36,7 +36,7 @@ with open("./test_data.csv", "r") as csv_file:
             expected = list(labels.keys())[0]
             answer = row[-1]
             if answer != expected:
-                print(labels)
+                # print(labels)
                 print("Wrong at token " + str(line_count + 1) + ". Expected: " + expected + " Got: " + answer)
                 cnt += 1
             answers.append(expected)
@@ -46,4 +46,6 @@ with open("./test_data_after_training.txt", 'w') as file:
     for i in range(len(answers)):
         file.write(answers[i] + '\n')
 
-print("Wrong tests: " + str(cnt))
+# print("Wrong tests: " + str(cnt))
+
+print("Accuracy: " + str(cnt / line_count))
